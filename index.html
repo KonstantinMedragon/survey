@@ -3,7 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>IVD Market Intelligence · Clinical Chemistry · Representative Office Guide</title>
+    <title>Thailand IVD Market · Clinical Chemistry · Representative Office Setup</title>
+    <meta name="description" content="Complete market intelligence for Thailand IVD market: clinical chemistry opportunities, Thai FDA registration pathways, and strategic Representative Office setup guide. 100% foreign ownership, 3M THB investment, step-by-step procedure.">
+    <meta name="keywords" content="Thailand IVD market, clinical chemistry, representative office Thailand, Thai FDA registration, medical devices Thailand, IVD reagents, diagnostic market Thailand, foreign ownership Thailand">
+    <meta name="author" content="Konstantin Bakharev, PhD">
+    
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:title" content="Thailand IVD Market Intelligence · Clinical Chemistry & Representative Office Guide">
+    <meta property="og:description" content="Complete market analysis: IVD market structure, clinical chemistry opportunities, Thai FDA pathways, and step-by-step Representative Office setup in Thailand.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/7B5AAF/FFFFFF?text=Thailand+IVD+Market+Preview">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://ivd-market-intelligence.com">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Thailand IVD Market · Clinical Chemistry & Representative Office">
+    <meta name="twitter:description" content="Complete market intelligence for Thailand IVD market with practical Representative Office setup guide.">
+    <meta name="twitter:image" content="https://via.placeholder.com/1200x630/7B5AAF/FFFFFF?text=Thailand+IVD+Market">
+    
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%237B5AAF'/><text x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-weight='bold'>IVD</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%237B5AAF'/><text x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-weight='bold'>IVD</text></svg>">
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -206,6 +229,16 @@
             border-left: 3px solid #7B5AAF;
         }
 
+        /* Preview image container for social sharing - hidden but loaded */
+        .preview-image-container {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
         .arrow-down {
             display: flex;
             justify-content: center;
@@ -267,6 +300,11 @@
     </div>
 </div>
 
+<!-- Hidden preview canvas for social media image (renders chart from section 3) -->
+<div class="preview-image-container">
+    <canvas id="previewCanvas" width="1200" height="630" style="width:1200px; height:630px;"></canvas>
+</div>
+
 <div class="container">
     <div class="demo-note">
         📊 <strong>Demonstration version</strong> — Complete analytical structure. All specific client data, company names, and exact figures are replaced with <span class="blur-data">blurred placeholders</span>.
@@ -305,7 +343,7 @@
         </div>
     </div>
 
-    <!-- SECTION 3: COMPETITIVE LANDSCAPE -->
+    <!-- SECTION 3: COMPETITIVE LANDSCAPE (this chart will be used for preview) -->
     <div id="players" class="section-title">3. Regulatory Context & Competitive Landscape</div>
     <div class="card full-width">
         <p>Thailand's medical device framework aligns with IMDRF and ASEAN Medical Device Directive. Thai FDA offers Concise Pathway, Reliance Program, and Full Evaluation, accepting approvals from reference countries (US FDA, EU Notified Bodies, Health Canada, TGA, MHLW). This creates a natural commercial advantage for established European and American IVD manufacturers.</p>
@@ -403,7 +441,7 @@
         <div class="insight">A systematic analysis of local production capacities and distribution partnerships is available. Full list with contact details provided in complete report.</div>
     </div>
 
-    <!-- SECTION 7: REPRESENTATIVE OFFICE — CLEAN, PERSUASIVE, NO VISA OBSESSION -->
+    <!-- SECTION 7: REPRESENTATIVE OFFICE — CLEAN, PERSUASIVE -->
     <div id="representative" class="section-title">7. Representative Office in Thailand — Strategic Market Entry</div>
     <div class="card full-width">
         <div class="badge">🇹🇭 100% foreign ownership · Brand positioning · Local trust</div>
@@ -521,9 +559,9 @@
             options: { responsive: true, cutout: '50%', plugins: { legend: { position: 'bottom', labels: { font: { size: 10 } } }, tooltip: { callbacks: { label: () => 'Illustrative structure — actual figures blurred' } } } }
         });
 
-        // Chart 3: Import market share (illustrative)
+        // Chart 3: Import market share (illustrative) — THIS WILL BE USED FOR PREVIEW
         const ctxImport = document.getElementById('pieImportMarketShare').getContext('2d');
-        new Chart(ctxImport, {
+        const importChart = new Chart(ctxImport, {
             type: 'pie',
             data: { labels: ['Global Leader A', 'Global Leader B', 'Major Player C', 'Major Player D', 'Asian Manufacturer', 'Others & Local'], datasets: [{ data: [15, 12, 10, 8, 7, 48], backgroundColor: ['#7B5AAF', '#5A9E8F', '#D9A13B', '#4A8FE7', '#5CC0B0', '#B0B0B0'], borderColor: '#FFFFFF', borderWidth: 2 }] },
             options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom', labels: { font: { size: 9 } } }, tooltip: { callbacks: { label: () => 'Illustrative — actual shares blurred' } } } }
@@ -538,6 +576,57 @@
             data: { labels: years, datasets: [{ label: 'Market Growth Index (baseline confidential)', data: revenueIndex, borderColor: '#7B5AAF', backgroundColor: 'rgba(123, 90, 175, 0.05)', borderWidth: 3, fill: true, pointBackgroundColor: '#FFD700', pointBorderColor: '#FFFFFF', pointRadius: 4, tension: 0.2 }] },
             options: { responsive: true, maintainAspectRatio: true, plugins: { tooltip: { callbacks: { label: (ctx) => `Relative index: ${ctx.raw} (actual values blurred)` } }, legend: { position: 'top' } }, scales: { y: { title: { display: true, text: 'Relative Market Index' }, grid: { color: '#f2eefb' } }, x: { title: { display: true, text: 'Year' } } } }
         });
+
+        // Generate preview image from section 3 chart for social sharing
+        setTimeout(() => {
+            const previewCanvas = document.getElementById('previewCanvas');
+            if (previewCanvas) {
+                const previewCtx = previewCanvas.getContext('2d');
+                // Background
+                previewCtx.fillStyle = '#7B5AAF';
+                previewCtx.fillRect(0, 0, 1200, 630);
+                // Title overlay
+                previewCtx.fillStyle = '#FFFFFF';
+                previewCtx.font = 'bold 48px "Segoe UI", Roboto';
+                previewCtx.textAlign = 'center';
+                previewCtx.fillText('Thailand IVD Market', 600, 100);
+                previewCtx.font = '28px "Segoe UI", Roboto';
+                previewCtx.fillStyle = '#E6E6FA';
+                previewCtx.fillText('Clinical Chemistry · Representative Office Guide', 600, 160);
+                
+                // Draw a simplified pie chart representation
+                const centerX = 600, centerY = 380, radius = 160;
+                const sectors = [
+                    { angle: 54, color: '#7B5AAF', label: 'Global Leaders' },
+                    { angle: 43, color: '#5A9E8F', label: 'Major Players' },
+                    { angle: 36, color: '#D9A13B', label: 'Asian Mfg' },
+                    { angle: 227, color: '#B0B0B0', label: 'Others' }
+                ];
+                let startAngle = -90 * Math.PI / 180;
+                sectors.forEach(sector => {
+                    const endAngle = startAngle + (sector.angle * Math.PI / 180);
+                    previewCtx.beginPath();
+                    previewCtx.moveTo(centerX, centerY);
+                    previewCtx.arc(centerX, centerY, radius, startAngle, endAngle);
+                    previewCtx.fillStyle = sector.color;
+                    previewCtx.fill();
+                    startAngle = endAngle;
+                });
+                previewCtx.fillStyle = '#FFFFFF';
+                previewCtx.font = 'bold 20px "Segoe UI"';
+                previewCtx.fillText('IVD Import Market Structure (Illustrative)', 600, 580);
+                
+                // Also copy the actual chart from canvas if possible (optional)
+                const sourceCanvas = document.getElementById('pieImportMarketShare');
+                if (sourceCanvas && sourceCanvas.toDataURL) {
+                    const img = new Image();
+                    img.onload = function() {
+                        previewCtx.drawImage(img, 350, 220, 500, 300);
+                    };
+                    img.src = sourceCanvas.toDataURL();
+                }
+            }
+        }, 500);
     })();
 </script>
 </body>
