@@ -12,7 +12,7 @@
     <meta property="og:title" content="Thailand IVD Market Intelligence · Clinical Chemistry & Representative Office Guide">
     <meta property="og:description" content="Complete market analysis: IVD market structure, clinical chemistry opportunities, Thai FDA pathways, and step-by-step Representative Office setup in Thailand.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://via.placeholder.com/1200x630/7B5AAF/FFFFFF?text=Thailand+IVD+Market+Preview">
+    <meta property="og:image" content="images/icon.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://ivd-market-intelligence.com">
@@ -21,11 +21,13 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Thailand IVD Market · Clinical Chemistry & Representative Office">
     <meta name="twitter:description" content="Complete market intelligence for Thailand IVD market with practical Representative Office setup guide.">
-    <meta name="twitter:image" content="https://via.placeholder.com/1200x630/7B5AAF/FFFFFF?text=Thailand+IVD+Market">
+    <meta name="twitter:image" content="images/icon.jpg">
     
-    <!-- Favicon & Icons -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%237B5AAF'/><text x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-weight='bold'>IVD</text></svg>">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%237B5AAF'/><text x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-weight='bold'>IVD</text></svg>">
+    <!-- Favicon Icons -->
+    <link rel="icon" type="image/jpeg" href="images/icon.jpg">
+    <link rel="apple-touch-icon" href="images/icon.jpg">
+    <!-- Fallback SVG favicon in case image not found -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%237B5AAF'/%3E%3Ctext x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-weight='bold'%3EIVD%3C/text%3E%3C/svg%3E">
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
@@ -200,7 +202,7 @@
             border-bottom: none;
         }
 
-        /* Blur for sensitive data placeholders - no actual data underneath */
+        /* Blur for sensitive data placeholders */
         .blur-data {
             filter: blur(4px);
             background-color: rgba(0,0,0,0.03);
@@ -227,16 +229,6 @@
             font-size: 0.85rem;
             color: #2c3e50;
             border-left: 3px solid #7B5AAF;
-        }
-
-        /* Preview image container for social sharing - hidden but loaded */
-        .preview-image-container {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            opacity: 0;
-            overflow: hidden;
-            pointer-events: none;
         }
 
         .arrow-down {
@@ -300,11 +292,6 @@
     </div>
 </div>
 
-<!-- Hidden preview canvas for social media image (renders chart from section 3) -->
-<div class="preview-image-container">
-    <canvas id="previewCanvas" width="1200" height="630" style="width:1200px; height:630px;"></canvas>
-</div>
-
 <div class="container">
     <div class="demo-note">
         📊 <strong>Demonstration version</strong> — Complete analytical structure. All specific client data, company names, and exact figures are replaced with <span class="blur-data">blurred placeholders</span>.
@@ -343,7 +330,7 @@
         </div>
     </div>
 
-    <!-- SECTION 3: COMPETITIVE LANDSCAPE (this chart will be used for preview) -->
+    <!-- SECTION 3: COMPETITIVE LANDSCAPE (main chart for preview) -->
     <div id="players" class="section-title">3. Regulatory Context & Competitive Landscape</div>
     <div class="card full-width">
         <p>Thailand's medical device framework aligns with IMDRF and ASEAN Medical Device Directive. Thai FDA offers Concise Pathway, Reliance Program, and Full Evaluation, accepting approvals from reference countries (US FDA, EU Notified Bodies, Health Canada, TGA, MHLW). This creates a natural commercial advantage for established European and American IVD manufacturers.</p>
@@ -355,7 +342,7 @@
         <p class="note">* Illustrative market structure — exact figures blurred.</p>
     </div>
 
-    <!-- SECTION 4: REGISTRATION PATHWAYS (public) -->
+    <!-- SECTION 4: REGISTRATION PATHWAYS -->
     <div id="registration" class="section-title">4. Thai FDA Registration Pathways for IVD Products</div>
     <div class="card full-width">
         <div class="table-wrapper">
@@ -394,7 +381,7 @@
         <div class="insight"><strong>Recommendation:</strong> Partner with a local Thai distributor who will hold Thai FDA registration under OEM/Private Label pathway.</div>
     </div>
 
-    <!-- SECTION 5: PRICING ESTIMATES (table structure visible, data blurred) -->
+    <!-- SECTION 5: PRICING ESTIMATES -->
     <div id="pricing" class="section-title">5. Estimated Pricing for Thai Distributor (Clinical Chemistry)</div>
     <div class="card full-width">
         <p>Below is the pricing table structure based on hospital price lists and distributor margin models. All specific figures are blurred — actual benchmark data available in full report.</p>
@@ -404,19 +391,19 @@
                     <tr><th>Test / Panel</th><th>Price to Lab (USD)</th><th>Target Price to Distributor (USD)</th><th>Typical Margin Range</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Glucose (per test)</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr>
-                    <tr><td>Creatinine (per test)</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr>
-                    <tr><td>ALT / AST (each)</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr>
-                    <tr><td>Uric Acid</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr>
-                    <tr><td>Lipid Panel (TC, TG, HDL, LDL)</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr>
-                    <tr><td>HbA1c</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr>
+                    <tr><td>Glucose (per test)</td>\n                        <td><span class="blur-data">$X.XX</span></td>\n                        <td><span class="blur-data">$X.XX</span></td>\n                        <td><span class="blur-data">XX-XX%</span></td>\n                    </tr>
+                    <tr><td>Creatinine (per test)</td>\n                        <td><span class="blur-data">$X.XX</span></td>\n                        <td><span class="blur-data">$X.XX</span></td>\n                        <td><span class="blur-data">XX-XX%</span></td>\n                    </tr>
+                    <tr><td>ALT / AST (each)</td>\n                        <td><span class="blur-data">$X.XX</span></td>\n                        <td><span class="blur-data">$X.XX</span></td>\n                        <td><span class="blur-data">XX-XX%</span></td>\n                    </tr>
+                    <tr><td>Uric Acid</td>\n                        <td><span class="blur-data">$X.XX</span></td>\n                        <td><span class="blur-data">$X.XX</span></td>\n                        <td><span class="blur-data">XX-XX%</span></td>\n                    </tr>
+                    <tr><td>Lipid Panel (TC, TG, HDL, LDL)</td>\n                        <td><span class="blur-data">$X.XX</span></td>\n                        <td><span class="blur-data">$X.XX</span></td>\n                        <td><span class="blur-data">XX-XX%</span></td>\n                    </tr>
+                    <tr><td>HbA1c</td>\n                        <td><span class="blur-data">$X.XX</span></td>\n                        <td><span class="blur-data">$X.XX</span></td>\n                        <td><span class="blur-data">XX-XX%</span></td>\n                    </tr>
                 </tbody>
             </table>
         </div>
         <div class="insight">For a 500-test kit: detailed per-kit pricing structure available. Actual figures blurred for confidentiality.</div>
     </div>
 
-    <!-- SECTION 6: POTENTIAL PARTNERS (company names blurred, structure visible) -->
+    <!-- SECTION 6: POTENTIAL PARTNERS -->
     <div id="partners" class="section-title">6. Potential Partners in Thailand (Manufacturers & Distributors)</div>
     <div class="card full-width">
         <p>Based on Thai FDA database and market research, the following types of companies are active in the Thai IVD market. Specific names are blurred.</p>
@@ -429,19 +416,16 @@
                     <tr><td><span class="blur-data">[Manufacturer Type C]</span></td><td>Immunoassay, rapid tests, enzymes</td></tr>
                     <tr><td><span class="blur-data">[Distributor Type D]</span></td><td>Laboratory reagents, distribution</td></tr>
                     <tr><td><span class="blur-data">[Manufacturer Type E]</span></td><td>Assay kits, blood collection devices</td></tr>
-                    <tr><td><span class="blur-data">[Research Center]</span></td><td>Thalassemia screening, R&D</td></tr>
-                    <tr><td><span class="blur-data">[Manufacturer Type G]</span></td><td>Immunoassay, PCR reagents</td></tr>
+                    <tr><td><span class="blur-data">[Research Center]</span></td><td>Thalassemia screening, R&amp;D</td></tr>
                     <tr><td><span class="blur-data">[OEM Provider]</span></td><td>Serology, infectious disease tests, OEM</td></tr>
                     <tr><td><span class="blur-data">[Chinese Manufacturer 1]</span></td><td>Biochemistry, urinalysis, hematology instruments</td></tr>
-                    <tr><td><span class="blur-data">[Chinese Manufacturer 2]</span></td><td>IVD instruments & reagents</td></tr>
-                    <tr><td><span class="blur-data">[Local Distributor Group]</span></td><td>Diagnostic equipment and reagent distribution</td></tr>
                 </tbody>
             </table>
         </div>
         <div class="insight">A systematic analysis of local production capacities and distribution partnerships is available. Full list with contact details provided in complete report.</div>
     </div>
 
-    <!-- SECTION 7: REPRESENTATIVE OFFICE — CLEAN, PERSUASIVE -->
+    <!-- SECTION 7: REPRESENTATIVE OFFICE -->
     <div id="representative" class="section-title">7. Representative Office in Thailand — Strategic Market Entry</div>
     <div class="card full-width">
         <div class="badge">🇹🇭 100% foreign ownership · Brand positioning · Local trust</div>
@@ -476,9 +460,9 @@
             <table class="data-table">
                 <thead><tr><th>Step</th><th>Action</th><th>Timeline</th></tr></thead>
                 <tbody>
-                    <tr><td>1</td><td>Prepare head office documents (incorporation certificate, board resolution, power of attorney) — notarized, legalized, translated to Thai</td><td>2-3 weeks</td></tr>
+                    <tr><td>1</td><td>Prepare head office documents — notarized, legalized, translated to Thai</td><td>2-3 weeks</td></tr>
                     <tr><td>2</td><td>Reserve company name at DBD (must end with "Representative Office")</td><td>1-3 days</td></tr>
-                    <tr><td>3</td><td>Submit registration form (Phor.Khor. 01) with lease agreement, passport copies, and documents</td><td>5-7 days</td></tr>
+                    <tr><td>3</td><td>Submit registration form (Phor.Khor. 01) with lease agreement, documents</td><td>5-7 days</td></tr>
                     <tr><td>4</td><td>Obtain Tax ID (TIN) and VAT registration at Revenue Department</td><td>1-2 weeks</td></tr>
                     <tr><td>5</td><td>Register with Social Security Office (SSO) for Thai employee(s)</td><td>1-2 weeks</td></tr>
                     <tr><td>6</td><td>Open corporate bank account in Thailand</td><td>5-10 days</td></tr>
@@ -498,14 +482,14 @@
                     <tr><td>Accounting & tax compliance (monthly)</td><td>8,000 - 15,000/month</td><td>€220 - €420/month</td></tr>
                     <tr><td>Thai employee salary (1 staff, minimum + SSO)</td><td>180,000 - 300,000/year</td><td>€5,000 - €8,300</td></tr>
                     <tr><td>Visa & Work Permit fees (if foreign manager)</td><td>30,000 - 50,000</td><td>€830 - €1,400</td></tr>
-                    <tr><td><strong>TOTAL FIRST YEAR</strong></td><td><strong>~500,000 - 900,000 THB</strong></td><td><strong>~€14,000 - €25,000</strong></td></tr>
+                    <tr style="background: #f5f5f5;"><td><strong>TOTAL FIRST YEAR</strong></td><td><strong>~500,000 - 900,000 THB</strong></td><td><strong>~€14,000 - €25,000</strong></td></tr>
                 </tbody>
             </table>
         </div>
         <p class="note">* The 3 million THB minimum investment (including salaries) must be demonstrated within the first 2 years of operation.</p>
     </div>
 
-    <!-- SECTION 8: Thai FDA codes (public) -->
+    <!-- SECTION 8: Thai FDA codes -->
     <div id="fda-list" class="section-title">8. Thai FDA — Relevant Codes for IVD Reagents / Pre-mixes</div>
     <div class="card full-width">
         <div class="table-wrapper">
@@ -543,7 +527,7 @@
             });
         }
 
-        // Chart 1: Total market structure (illustrative)
+        // Chart 1
         const ctx1 = document.getElementById('pieTotalMarket').getContext('2d');
         new Chart(ctx1, {
             type: 'pie',
@@ -551,7 +535,7 @@
             options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: () => 'Illustrative only — exact figures blurred' } } } }
         });
 
-        // Chart 2: IVD breakdown (illustrative)
+        // Chart 2
         const ctx2 = document.getElementById('pieIvdBreakdown').getContext('2d');
         new Chart(ctx2, {
             type: 'doughnut',
@@ -559,15 +543,15 @@
             options: { responsive: true, cutout: '50%', plugins: { legend: { position: 'bottom', labels: { font: { size: 10 } } }, tooltip: { callbacks: { label: () => 'Illustrative structure — actual figures blurred' } } } }
         });
 
-        // Chart 3: Import market share (illustrative) — THIS WILL BE USED FOR PREVIEW
+        // Chart 3 (preview chart)
         const ctxImport = document.getElementById('pieImportMarketShare').getContext('2d');
-        const importChart = new Chart(ctxImport, {
+        new Chart(ctxImport, {
             type: 'pie',
             data: { labels: ['Global Leader A', 'Global Leader B', 'Major Player C', 'Major Player D', 'Asian Manufacturer', 'Others & Local'], datasets: [{ data: [15, 12, 10, 8, 7, 48], backgroundColor: ['#7B5AAF', '#5A9E8F', '#D9A13B', '#4A8FE7', '#5CC0B0', '#B0B0B0'], borderColor: '#FFFFFF', borderWidth: 2 }] },
             options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom', labels: { font: { size: 9 } } }, tooltip: { callbacks: { label: () => 'Illustrative — actual shares blurred' } } } }
         });
 
-        // Chart 4: Growth trend (illustrative index)
+        // Chart 4
         const years = ['2016','2017','2018','2019','2020','2021','2022','2023','2024','2025','2026','2027','2028','2029','2030'];
         const revenueIndex = [100, 108, 116, 126, 135, 153, 175, 196, 224, 252, 282, 315, 350, 388, 428];
         const ctxLine = document.getElementById('ivdGrowthChart').getContext('2d');
@@ -576,57 +560,6 @@
             data: { labels: years, datasets: [{ label: 'Market Growth Index (baseline confidential)', data: revenueIndex, borderColor: '#7B5AAF', backgroundColor: 'rgba(123, 90, 175, 0.05)', borderWidth: 3, fill: true, pointBackgroundColor: '#FFD700', pointBorderColor: '#FFFFFF', pointRadius: 4, tension: 0.2 }] },
             options: { responsive: true, maintainAspectRatio: true, plugins: { tooltip: { callbacks: { label: (ctx) => `Relative index: ${ctx.raw} (actual values blurred)` } }, legend: { position: 'top' } }, scales: { y: { title: { display: true, text: 'Relative Market Index' }, grid: { color: '#f2eefb' } }, x: { title: { display: true, text: 'Year' } } } }
         });
-
-        // Generate preview image from section 3 chart for social sharing
-        setTimeout(() => {
-            const previewCanvas = document.getElementById('previewCanvas');
-            if (previewCanvas) {
-                const previewCtx = previewCanvas.getContext('2d');
-                // Background
-                previewCtx.fillStyle = '#7B5AAF';
-                previewCtx.fillRect(0, 0, 1200, 630);
-                // Title overlay
-                previewCtx.fillStyle = '#FFFFFF';
-                previewCtx.font = 'bold 48px "Segoe UI", Roboto';
-                previewCtx.textAlign = 'center';
-                previewCtx.fillText('Thailand IVD Market', 600, 100);
-                previewCtx.font = '28px "Segoe UI", Roboto';
-                previewCtx.fillStyle = '#E6E6FA';
-                previewCtx.fillText('Clinical Chemistry · Representative Office Guide', 600, 160);
-                
-                // Draw a simplified pie chart representation
-                const centerX = 600, centerY = 380, radius = 160;
-                const sectors = [
-                    { angle: 54, color: '#7B5AAF', label: 'Global Leaders' },
-                    { angle: 43, color: '#5A9E8F', label: 'Major Players' },
-                    { angle: 36, color: '#D9A13B', label: 'Asian Mfg' },
-                    { angle: 227, color: '#B0B0B0', label: 'Others' }
-                ];
-                let startAngle = -90 * Math.PI / 180;
-                sectors.forEach(sector => {
-                    const endAngle = startAngle + (sector.angle * Math.PI / 180);
-                    previewCtx.beginPath();
-                    previewCtx.moveTo(centerX, centerY);
-                    previewCtx.arc(centerX, centerY, radius, startAngle, endAngle);
-                    previewCtx.fillStyle = sector.color;
-                    previewCtx.fill();
-                    startAngle = endAngle;
-                });
-                previewCtx.fillStyle = '#FFFFFF';
-                previewCtx.font = 'bold 20px "Segoe UI"';
-                previewCtx.fillText('IVD Import Market Structure (Illustrative)', 600, 580);
-                
-                // Also copy the actual chart from canvas if possible (optional)
-                const sourceCanvas = document.getElementById('pieImportMarketShare');
-                if (sourceCanvas && sourceCanvas.toDataURL) {
-                    const img = new Image();
-                    img.onload = function() {
-                        previewCtx.drawImage(img, 350, 220, 500, 300);
-                    };
-                    img.src = sourceCanvas.toDataURL();
-                }
-            }
-        }, 500);
     })();
 </script>
 </body>
