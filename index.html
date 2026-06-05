@@ -26,7 +26,6 @@
     <!-- Favicon Icons -->
     <link rel="icon" type="image/png" href="https://konstantinmedragon.github.io/survey/images/icon.png">
     <link rel="apple-touch-icon" href="https://konstantinmedragon.github.io/survey/images/icon.png">
-    <!-- Fallback SVG favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%237B5AAF'/%3E%3Ctext x='50' y='70' font-size='50' text-anchor='middle' fill='white' font-weight='bold'%3EIVD%3C/text%3E%3C/svg%3E">
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -254,8 +253,19 @@
     <div class="container">
         <div class="section-header"><h2>1. Thailand Medical Market & IVD Share</h2><div class="accent-line"></div></div>
         <div class="card-grid">
-            <div class="card"><div class="badge-card">TOTAL MEDICAL MARKET</div><div class="stat-value-card"><span class="blur-data">€X.XX billion</span></div><p>IVD accounts for <strong><span class="blur-data">XX%</span></strong> of total medical market.</p><div class="chart-container"><canvas id="pieTotalMarket" width="450" height="250"></canvas></div></div>
-            <div class="card"><div class="badge-card">IVD MARKET BREAKDOWN</div><div class="stat-value-card"><span class="blur-data">€XXXM total IVD</span></div><p>Reagents & Kits = <span class="blur-data">XX%</span><br><strong>Clinical Chemistry</strong> = <span class="blur-data">X% of reagents</span><br>Instruments & Services = <span class="blur-data">XX%</span></p><div class="chart-container"><canvas id="pieIvdBreakdown" width="450" height="250"></canvas></div></div>
+            <div class="card">
+                <div class="badge-card">TOTAL MEDICAL MARKET</div>
+                <div class="stat-value-card"><span class="blur-data">€X.XX billion</span></div>
+                <p>IVD accounts for <strong><span class="blur-data">20%</span></strong> of total medical market. Other segments: <span class="blur-data">80%</span>.</p>
+                <div class="chart-container"><canvas id="pieTotalMarket" width="450" height="250"></canvas></div>
+                <div class="insight" style="margin-top: 8px; font-size: 0.8rem;">Source: aggregated market research (illustrative).</div>
+            </div>
+            <div class="card">
+                <div class="badge-card">IVD MARKET BREAKDOWN</div>
+                <div class="stat-value-card"><span class="blur-data">€XXXM total IVD</span></div>
+                <p>Reagents & Kits = <span class="blur-data">70%</span><br><strong>Clinical Chemistry</strong> = <span class="blur-data">15% of reagents</span><br>Instruments & Services = <span class="blur-data">30%</span></p>
+                <div class="chart-container"><canvas id="pieIvdBreakdown" width="450" height="250"></canvas></div>
+            </div>
         </div>
     </div>
 </section>
@@ -264,7 +274,13 @@
 <section id="dynamics" style="background: var(--gray-50);">
     <div class="container">
         <div class="section-header"><h2>2. Thailand IVD Market Growth (2016–2030)</h2><div class="accent-line"></div></div>
-        <div class="card"><div class="badge-card">Revenue forecast — illustrative trend (actual figures blurred)</div><div class="chart-container"><canvas id="ivdGrowthChart" width="900" height="350"></canvas></div><div class="insight"><p><strong>Key market drivers:</strong> aging population, chronic diseases, healthcare investments, medical tourism. Demand for decentralized diagnostics and early detection programs fuels expansion.</p></div></div>
+        <div class="card">
+            <div class="badge-card">Revenue forecast — illustrative trend (actual figures blurred)</div>
+            <div class="chart-container"><canvas id="ivdGrowthChart" width="900" height="350"></canvas></div>
+            <div class="insight">
+                <p><strong>Key market drivers:</strong> aging population, chronic diseases, healthcare investments, medical tourism. Demand for decentralized diagnostics and early detection programs fuels expansion.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -272,7 +288,13 @@
 <section id="players">
     <div class="container">
         <div class="section-header"><h2>3. Regulatory Context & Competitive Landscape</h2><div class="accent-line"></div></div>
-        <div class="card"><p>Thailand's medical device framework aligns with IMDRF and ASEAN Medical Device Directive. Thai FDA offers Concise Pathway, Reliance Program, and Full Evaluation, accepting approvals from reference countries (US FDA, EU Notified Bodies, Health Canada, TGA, MHLW).</p><div class="insight">Opportunity focus: clinical chemistry pre-mixes (glucose, LDH, creatinine, ALT, AST), modular reagent systems, and raw material supply to local manufacturers/distributors.</div><div class="chart-container"><canvas id="pieImportMarketShare" width="900" height="350"></canvas></div><p class="note">* Illustrative market structure — exact figures blurred.</p></div>
+        <div class="card">
+            <p>Thailand's medical device framework aligns with IMDRF and ASEAN Medical Device Directive. Thai FDA offers Concise Pathway, Reliance Program, and Full Evaluation, accepting approvals from reference countries (US FDA, EU Notified Bodies, Health Canada, TGA, MHLW). This creates a natural commercial advantage for established European and American IVD manufacturers.</p>
+            <p><strong>Market Structure:</strong> Import-driven IVD market. Western manufacturers dominate premium segments. Specific share data available upon engagement.</p>
+            <div class="insight">Opportunity focus: clinical chemistry pre-mixes (glucose, LDH, creatinine, ALT, AST), modular reagent systems, and raw material supply to local manufacturers/distributors.</div>
+            <div class="chart-container"><canvas id="pieImportMarketShare" width="900" height="350"></canvas></div>
+            <p class="note">* Illustrative market structure — exact figures blurred.</p>
+        </div>
     </div>
 </section>
 
@@ -280,43 +302,157 @@
 <section id="registration" style="background: var(--gray-50);">
     <div class="container">
         <div class="section-header"><h2>4. Thai FDA Registration Pathways for IVD Products</h2><div class="accent-line"></div></div>
-        <div class="card"><div class="table-wrapper"><table class="data-table"><thead><tr><th>Pathway</th><th>Description</th><th>Timeline</th><th>Suitability</th></tr></thead><tbody><tr><td><strong>Concise Pathway</strong></td><td>For products with prior approval from reference country</td><td>~90-180 days</td><td>Best if manufacturer holds EU CE or US FDA</td></tr><tr><td><strong>Full Evaluation</strong></td><td>No reference country approval; complete technical file required</td><td>~180-365 days</td><td>Longer but viable</td></tr><tr><td><strong>Reliance Program</strong></td><td>Already registered in ASEAN reference countries</td><td>~60-120 days</td><td>Fast if ASEAN presence</td></tr><tr><td><strong>OEM/Private Label Registration</strong></td><td>Local importer registers product under their name</td><td>~90-180 days</td><td>Recommended — distributor holds license</td></tr></tbody></table></div><div class="insight"><strong>Recommendation:</strong> Partner with a local Thai distributor who will hold Thai FDA registration under OEM/Private Label pathway.</div></div>
+        <div class="card">
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead><tr><th>Pathway</th><th>Description</th><th>Timeline</th><th>Suitability</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Concise Pathway</strong></td><td>For products with prior approval from reference country (US FDA, EU CE, Health Canada, TGA, MHLW)</td><td>~90-180 days</td><td>Best if manufacturer holds EU CE or US FDA</td></tr>
+                        <tr><td><strong>Full Evaluation</strong></td><td>No reference country approval; complete technical file required</td><td>~180-365 days</td><td>Longer but viable</td></tr>
+                        <tr><td><strong>Reliance Program</strong></td><td>Already registered in ASEAN reference countries (Singapore, Malaysia, Philippines)</td><td>~60-120 days</td><td>Fast if ASEAN presence</td></tr>
+                        <tr><td><strong>OEM/Private Label Registration</strong></td><td>Local importer registers product under their name using manufacturer as contract manufacturer</td><td>~90-180 days</td><td>Recommended — distributor holds license</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="insight"><strong>Recommendation:</strong> Partner with a local Thai distributor who will hold Thai FDA registration under OEM/Private Label pathway.</div>
+        </div>
     </div>
 </section>
 
 <!-- SECTION 5: PRICING -->
 <section id="pricing">
     <div class="container">
-        <div class="section-header"><h2>5. Estimated Pricing for Thai Distributor</h2><div class="accent-line"></div></div>
-        <div class="card"><div class="table-wrapper"><table class="data-table"><thead><tr><th>Test / Panel</th><th>Price to Lab (USD)</th><th>Target Price to Distributor (USD)</th><th>Typical Margin Range</th></tr></thead><tbody><tr><td>Glucose (per test)</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr><tr><td>Creatinine (per test)</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr><tr><td>ALT / AST (each)</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr><tr><td>Lipid Panel (TC, TG, HDL, LDL)</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr><tr><td>HbA1c</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr></tbody></table></div><div class="insight">For a 500-test kit: detailed per-kit pricing structure available. Actual figures blurred for confidentiality.</div></div>
+        <div class="section-header"><h2>5. Estimated Pricing for Thai Distributor (Clinical Chemistry)</h2><div class="accent-line"></div></div>
+        <div class="card">
+            <p>Below is the pricing table structure based on hospital price lists and distributor margin models. All specific figures are blurred — actual benchmark data available in full report.</p>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead><tr><th>Test / Panel</th><th>Price to Lab (USD)</th><th>Target Price to Distributor (USD)</th><th>Typical Margin Range</th></tr></thead>
+                    <tbody>
+                        <tr><td>Glucose (per test)</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr>
+                        <tr><td>Creatinine (per test)</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr>
+                        <tr><td>ALT / AST (each)</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr>
+                        <tr><td>Uric Acid</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr>
+                        <tr><td>Lipid Panel (TC, TG, HDL, LDL)</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr>
+                        <tr><td>HbA1c</td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">$X.XX</span></td><td><span class="blur-data">XX-XX%</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="insight">For a 500-test kit: detailed per-kit pricing structure available. Actual figures blurred for confidentiality.</div>
+        </div>
     </div>
 </section>
 
 <!-- SECTION 6: POTENTIAL PARTNERS -->
 <section id="partners" style="background: var(--gray-50);">
     <div class="container">
-        <div class="section-header"><h2>6. Potential Partners in Thailand</h2><div class="accent-line"></div></div>
-        <div class="card"><div class="table-wrapper"><table class="data-table"><thead><tr><th>Company Type / Category</th><th>Activity / Role</th></tr></thead><tbody><tr><td><span class="blur-data">[Manufacturer Type A]</span></td><td>Clinical chemistry reagents, rapid tests</td></tr><tr><td><span class="blur-data">[Manufacturer Type B]</span></td><td>Reagents, pregnancy tests, home test kits</td></tr><tr><td><span class="blur-data">[Manufacturer Type C]</span></td><td>Immunoassay, rapid tests, enzymes</td></tr><tr><td><span class="blur-data">[Distributor Type D]</span></td><td>Laboratory reagents, distribution</td></tr><tr><td><span class="blur-data">[Chinese Manufacturer 1]</span></td><td>Biochemistry, urinalysis, hematology instruments</td></tr></tbody></table></div><div class="insight">A systematic analysis of local production capacities and distribution partnerships is available. Full list with contact details provided in complete report.</div></div>
+        <div class="section-header"><h2>6. Potential Partners in Thailand (Manufacturers & Distributors)</h2><div class="accent-line"></div></div>
+        <div class="card">
+            <p>Based on Thai FDA database and market research, the following types of companies are active in the Thai IVD market. Specific names are blurred.</p>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead><tr><th>Company Type / Category</th><th>Activity / Role</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="blur-data">[Manufacturer Type A]</span></td><td>Clinical chemistry reagents, rapid tests</td></tr>
+                        <tr><td><span class="blur-data">[Manufacturer Type B]</span></td><td>Reagents, pregnancy tests, home test kits</td></tr>
+                        <tr><td><span class="blur-data">[Manufacturer Type C]</span></td><td>Immunoassay, rapid tests, enzymes</td></tr>
+                        <tr><td><span class="blur-data">[Distributor Type D]</span></td><td>Laboratory reagents, distribution</td></tr>
+                        <tr><td><span class="blur-data">[Manufacturer Type E]</span></td><td>Assay kits, blood collection devices</td></tr>
+                        <tr><td><span class="blur-data">[Research Center]</span></td><td>Thalassemia screening, R&amp;D</td></tr>
+                        <tr><td><span class="blur-data">[OEM Provider]</span></td><td>Serology, infectious disease tests, OEM</td></tr>
+                        <tr><td><span class="blur-data">[Chinese Manufacturer 1]</span></td><td>Biochemistry, urinalysis, hematology instruments</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="insight">A systematic analysis of local production capacities and distribution partnerships is available. Full list with contact details provided in complete report.</div>
+        </div>
     </div>
 </section>
 
 <!-- SECTION 7: REPRESENTATIVE OFFICE -->
 <section id="representative">
     <div class="container">
-        <div class="section-header"><h2>7. Representative Office in Thailand</h2><div class="accent-line"></div><p>100% foreign ownership · Brand positioning · Local trust</p></div>
-        <div class="card"><p><strong>What is a Representative Office?</strong> A legal structure that allows a foreign company to establish a non-trading presence in Thailand for market research, product promotion, technical support, and distributor liaison. Direct sales are prohibited — commercial transactions go through local distributors.</p>
-        <div class="insight"><strong>Why open a Representative Office?</strong><br>✓ 100% foreign ownership — no Thai partner required<br>✓ Brand positioning — physical presence builds credibility<br>✓ Local client trust — Thai hospitals prefer partners with local offices<br>✓ Direct control over distributor relationships and pricing<br>✓ Cost-effective entry — lower setup costs</div>
-        <h4>📋 Eligibility Requirements</h4><div class="table-wrapper"><table class="data-table"><thead><tr><th>Requirement</th><th>Details</th></tr></thead><tbody><tr><td>Parent company age</td><td>Must be at least 3 years old</td></tr><tr><td>Minimum investment</td><td>3 million THB (~€83,000) over first 2 years</td></tr><tr><td>Physical office</td><td>Mandatory — registered address with lease agreement</td></tr><tr><td>Staffing</td><td>At least 1 Thai employee</td></tr></tbody></table></div>
-        <h4>📋 Step-by-Step Registration Procedure</h4><div class="table-wrapper"><table class="data-table"><thead><tr><th>Step</th><th>Action</th><th>Timeline</th></tr></thead><tbody><tr><td>1</td><td>Prepare head office documents — notarized, legalized, translated</td><td>2-3 weeks</td></tr><tr><td>2</td><td>Reserve company name at DBD (ends with "Representative Office")</td><td>1-3 days</td></tr><tr><td>3</td><td>Submit registration form with lease agreement</td><td>5-7 days</td></tr><tr><td>4</td><td>Obtain Tax ID and VAT registration</td><td>1-2 weeks</td></tr><tr><td>5</td><td>Register with Social Security Office for Thai employee(s)</td><td>1-2 weeks</td></tr><tr><td>6</td><td>Open corporate bank account in Thailand</td><td>5-10 days</td></tr></tbody></table></div>
-        <h4>💰 Estimated First-Year Budget</h4><div class="table-wrapper"><table class="data-table"><thead><tr><th>Expense category</th><th>Amount (THB)</th><th>Amount (EUR)</th></tr></thead><tbody><tr><td>DBD registration fees + government charges</td><td>10,000 - 25,000</td><td>€280 - €700</td></tr><tr><td>Legal services (turnkey registration)</td><td>80,000 - 150,000</td><td>€2,200 - €4,200</td></tr><tr><td>Office rent (Bangkok, 1 year)</td><td>180,000 - 360,000</td><td>€5,000 - €10,000</td></tr><tr><td>Accounting & tax compliance (monthly)</td><td>8,000 - 15,000/month</td><td>€220 - €420/month</td></tr><tr><td>Thai employee salary (1 staff)</td><td>180,000 - 300,000/year</td><td>€5,000 - €8,300</td></tr><tr><td><strong>TOTAL FIRST YEAR</strong></td><td><strong>~500,000 - 900,000 THB</strong></td><td><strong>~€14,000 - €25,000</strong></td></tr></tbody></table></div><p class="note">* 3 million THB minimum investment must be demonstrated within first 2 years.</p></div>
+        <div class="section-header"><h2>7. Representative Office in Thailand — Strategic Market Entry</h2><div class="accent-line"></div><p>🇹🇭 100% foreign ownership · Brand positioning · Local trust</p></div>
+        <div class="card">
+            <p><strong>What is a Representative Office?</strong> A legal structure that allows a foreign company to establish a non-trading presence in Thailand for market research, product promotion, technical support, and distributor liaison. Direct sales are prohibited — commercial transactions go through local distributors.</p>
+            <div class="insight">
+                <strong>Why open a Representative Office?</strong><br>
+                ✓ <strong>100% foreign ownership</strong> — no Thai partner required<br>
+                ✓ <strong>Brand positioning</strong> — physical presence builds credibility in the Thai market<br>
+                ✓ <strong>Local client trust</strong> — Thai hospitals and distributors prefer partners with local offices<br>
+                ✓ <strong>Direct control</strong> over distributor relationships, pricing, and market strategy<br>
+                ✓ <strong>Cost-effective entry</strong> — lower setup costs than a full subsidiary
+            </div>
+
+            <h4>📋 Eligibility Requirements</h4>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead><tr><th>Requirement</th><th>Details</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Parent company age</strong></td><td>Must be <strong>at least 3 years old</strong> (established for minimum 3 years)</td></tr>
+                        <tr><td><strong>Minimum investment</strong></td><td>Thai government requires <strong>3 million THB (~€83,000)</strong> in investments (including salaries) over the first 2 years of operation</td></tr>
+                        <tr><td><strong>Physical office</strong></td><td><strong>Mandatory</strong> — registered address with lease agreement (minimum 1 year)</td></tr>
+                        <tr><td><strong>Staffing</strong></td><td>At least 1 Thai employee (e.g., office coordinator or manager)</td></tr>
+                        <tr><td><strong>Permitted activities</strong></td><td>Market research, technical support, quality control, promotional activities, liaison with HQ. <strong>No direct sales, no revenue in Thailand</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>📋 Step-by-Step Registration Procedure</h4>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead><tr><th>Step</th><th>Action</th><th>Timeline</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>Prepare head office documents — notarized, legalized, translated to Thai</td><td>2-3 weeks</td></tr>
+                        <tr><td>2</td><td>Reserve company name at DBD (must end with "Representative Office")</td><td>1-3 days</td></tr>
+                        <tr><td>3</td><td>Submit registration form (Phor.Khor. 01) with lease agreement, documents</td><td>5-7 days</td></tr>
+                        <tr><td>4</td><td>Obtain Tax ID (TIN) and VAT registration at Revenue Department</td><td>1-2 weeks</td></tr>
+                        <tr><td>5</td><td>Register with Social Security Office (SSO) for Thai employee(s)</td><td>1-2 weeks</td></tr>
+                        <tr><td>6</td><td>Open corporate bank account in Thailand</td><td>5-10 days</td></tr>
+                        <tr><td>7</td><td>Apply for Work Permit and Non-Immigrant B visa for foreign manager (if applicable)</td><td>2-4 weeks</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>💰 Estimated First-Year Budget</h4>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead><tr><th>Expense category</th><th>Amount (THB)</th><th>Amount (EUR ~36 THB/EUR)</th></tr></thead>
+                    <tbody>
+                        <tr><td>DBD registration fees + government charges</td><td>10,000 - 25,000</td><td>€280 - €700</td></tr>
+                        <tr><td>Legal services (turnkey registration)</td><td>80,000 - 150,000</td><td>€2,200 - €4,200</td></tr>
+                        <tr><td>Office rent (small office, Bangkok, 1 year)</td><td>180,000 - 360,000</td><td>€5,000 - €10,000</td></tr>
+                        <tr><td>Accounting & tax compliance (monthly)</td><td>8,000 - 15,000/month</td><td>€220 - €420/month</td></tr>
+                        <tr><td>Thai employee salary (1 staff, minimum + SSO)</td><td>180,000 - 300,000/year</td><td>€5,000 - €8,300</td></tr>
+                        <tr><td>Visa & Work Permit fees (if foreign manager)</td><td>30,000 - 50,000</td><td>€830 - €1,400</td></tr>
+                        <tr style="background: #f5f5f5;"><td><strong>TOTAL FIRST YEAR</strong></td><td><strong>~500,000 - 900,000 THB</strong></td><td><strong>~€14,000 - €25,000</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="note">* The 3 million THB minimum investment (including salaries) must be demonstrated within the first 2 years of operation.</p>
+        </div>
     </div>
 </section>
 
 <!-- SECTION 8: FDA CODES -->
 <section id="fda-list" style="background: var(--gray-50);">
     <div class="container">
-        <div class="section-header"><h2>8. Thai FDA — Relevant Codes for IVD Reagents</h2><div class="accent-line"></div></div>
-        <div class="card"><div class="table-wrapper"><table class="data-table"><thead><tr><th>Code / Category</th><th>Description</th><th>Product Type</th></tr></thead><tbody><tr><td>10-1-034</td><td>In Vitro Diagnostic Medical Device (general)</td><td>Reagents, kits, calibrators</td></tr><tr><td>10-1-035</td><td>Clinical Chemistry reagents</td><td>Glucose, lipids, enzymes, electrolytes</td></tr><tr><td>10-1-038</td><td>Quality control material for clinical chemistry</td><td>Control sera, calibrators</td></tr><tr><td>10-1-041</td><td>Immunoassay reagents</td><td>Infectious diseases, hormones</td></tr><tr><td>10-1-050</td><td>Specimen collection / transport devices</td><td>Blood collection tubes, swabs</td></tr></tbody></table></div><p>For OEM products, registration by a local importer referencing the manufacturer's ISO13485 certificate is sufficient.</p></div>
+        <div class="section-header"><h2>8. Thai FDA — Relevant Codes for IVD Reagents / Pre-mixes</h2><div class="accent-line"></div></div>
+        <div class="card">
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead><tr><th>Code / Category (Thai FDA)</th><th>Description</th><th>Product Type</th></tr></thead>
+                    <tbody>
+                        <tr><td>10-1-034</span></td><td>In Vitro Diagnostic Medical Device (general)</td><td>Reagents, kits, calibrators</span></td></tr>
+                        <tr><td>10-1-035</span></td><td>Clinical Chemistry reagents</span></td><td>Glucose, lipids, enzymes, electrolytes</span></td></tr>
+                        <tr><td>10-1-038</span></td><td>Quality control material for clinical chemistry</span></td><td>Control sera, calibrators</span></td></tr>
+                        <tr><td>10-1-041</span></td><td>Immunoassay reagents</span></td><td>Infectious diseases, hormones</span></td></tr>
+                        <tr><td>10-1-050</span></td><td>Specimen collection / transport devices</span></td><td>Blood collection tubes, swabs</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>For OEM products, registration by a local importer referencing the manufacturer's ISO13485 certificate is sufficient. Thai FDA encourages local reagent production under "Thailand 4.0".</p>
+        </div>
     </div>
 </section>
 
@@ -334,19 +470,50 @@
     function openModalWithImage(imgId) { const modal = document.getElementById('imageModal'); const modalImg = document.getElementById('modalImage'); modal.style.display = 'flex'; modalImg.src = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 600\'%3E%3Crect width=\'800\' height=\'600\' fill=\'%23f5f5f5\'/%3E%3Ctext x=\'400\' y=\'300\' text-anchor=\'middle\' fill=\'%233a3a3a\' font-size=\'24\'%3EMarket Chart%3C/text%3E%3C/svg%3E'; document.body.style.overflow = 'hidden'; }
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
     
-    // Charts
+    // Chart 1: Total Market - 20% IVD / 80% Other
     const ctx1 = document.getElementById('pieTotalMarket').getContext('2d');
-    new Chart(ctx1, { type: 'pie', data: { labels: ['IVD Segment', 'Other Medical Segments'], datasets: [{ data: [22, 78], backgroundColor: ['#E6E6FA', '#FFF8DC'], borderColor: '#FFFFFF', borderWidth: 2 }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: () => 'Illustrative only — exact figures blurred' } } } } });
+    new Chart(ctx1, { 
+        type: 'pie', 
+        data: { labels: ['IVD (20%)', 'Other Medical Segments (80%)'], datasets: [{ data: [20, 80], backgroundColor: ['#E6E6FA', '#A0A0A0'], borderColor: '#FFFFFF', borderWidth: 2 }] }, 
+        options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.raw}%` } } } } 
+    });
+    
+    // Chart 2: IVD Breakdown - Reagents 70% (Clinical Chemistry 15% of reagents, Other Reagents 55%), Instruments 30%
     const ctx2 = document.getElementById('pieIvdBreakdown').getContext('2d');
-    new Chart(ctx2, { type: 'doughnut', data: { labels: ['Reagents & Kits', 'Clinical Chemistry (subset)', 'Other Reagents', 'Instruments & Others'], datasets: [{ data: [68, 13, 55, 32], backgroundColor: ['#E6E6FA', '#FFD700', '#D9CCF0', '#FFF8DC'], borderColor: '#FFFFFF', borderWidth: 1.5, borderRadius: 6 }] }, options: { responsive: true, cutout: '50%', plugins: { legend: { position: 'bottom', labels: { font: { size: 10 } } }, tooltip: { callbacks: { label: () => 'Illustrative structure — actual figures blurred' } } } } });
+    new Chart(ctx2, { 
+        type: 'doughnut', 
+        data: { labels: ['Reagents & Kits (70%)', 'Clinical Chemistry (15% of IVD reagents)', 'Other Reagents (55% of IVD reagents)', 'Instruments & Others (30%)'], 
+        datasets: [{ data: [70, 15, 55, 30], backgroundColor: ['#E6E6FA', '#FFD700', '#D9CCF0', '#B0B0B0'], borderColor: '#FFFFFF', borderWidth: 1.5, borderRadius: 6 }] }, 
+        options: { responsive: true, cutout: '50%', plugins: { legend: { position: 'bottom', labels: { font: { size: 10 } } }, tooltip: { callbacks: { label: (ctx) => { if (ctx.label.includes('Clinical Chemistry')) return 'Clinical Chemistry: (15% of IVD reagents)'; if (ctx.label.includes('Reagents & Kits')) return 'Reagents & Kits: 70% of IVD'; if (ctx.label.includes('Other Reagents')) return 'Other Reagents: 55% of IVD reagents'; return 'Instruments & Others: 30% of IVD'; } } } } } 
+    });
+    
+    // Chart 3: Import market share (illustrative)
     const ctxImport = document.getElementById('pieImportMarketShare').getContext('2d');
-    new Chart(ctxImport, { type: 'pie', data: { labels: ['Global Leader A', 'Global Leader B', 'Major Player C', 'Major Player D', 'Asian Manufacturer', 'Others & Local'], datasets: [{ data: [15, 12, 10, 8, 7, 48], backgroundColor: ['#7B5AAF', '#5A9E8F', '#D9A13B', '#4A8FE7', '#5CC0B0', '#B0B0B0'], borderColor: '#FFFFFF', borderWidth: 2 }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom', labels: { font: { size: 9 } } }, tooltip: { callbacks: { label: () => 'Illustrative — actual shares blurred' } } } } });
+    new Chart(ctxImport, { 
+        type: 'pie', 
+        data: { labels: ['Global Leader A', 'Global Leader B', 'Major Player C', 'Major Player D', 'Asian Manufacturer', 'Others & Local'], 
+        datasets: [{ data: [15, 12, 10, 8, 7, 48], backgroundColor: ['#7B5AAF', '#5A9E8F', '#D9A13B', '#4A8FE7', '#5CC0B0', '#B0B0B0'], borderColor: '#FFFFFF', borderWidth: 2 }] }, 
+        options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom', labels: { font: { size: 9 } } }, tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.raw}% estimated import share` } } } } 
+    });
+    
+    // Hero preview chart (same as import market share simplified)
     const ctxPreview = document.getElementById('pieImportMarketSharePreview').getContext('2d');
-    new Chart(ctxPreview, { type: 'pie', data: { labels: ['Global Leader A', 'Global Leader B', 'Major Player C', 'Others'], datasets: [{ data: [15, 12, 10, 63], backgroundColor: ['#7B5AAF', '#5A9E8F', '#D9A13B', '#B0B0B0'], borderColor: '#FFFFFF', borderWidth: 2 }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'right', labels: { font: { size: 10 } } } } } });
+    new Chart(ctxPreview, { 
+        type: 'pie', 
+        data: { labels: ['Global Leaders', 'Major Players', 'Asian Manufacturers', 'Others & Local'], 
+        datasets: [{ data: [37, 18, 7, 38], backgroundColor: ['#7B5AAF', '#5A9E8F', '#5CC0B0', '#B0B0B0'], borderColor: '#FFFFFF', borderWidth: 2 }] }, 
+        options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'right', labels: { font: { size: 10 } } } } } 
+    });
+    
+    // Growth chart
     const years = ['2016','2017','2018','2019','2020','2021','2022','2023','2024','2025','2026','2027','2028','2029','2030'];
     const revenueIndex = [100, 108, 116, 126, 135, 153, 175, 196, 224, 252, 282, 315, 350, 388, 428];
     const ctxLine = document.getElementById('ivdGrowthChart').getContext('2d');
-    new Chart(ctxLine, { type: 'line', data: { labels: years, datasets: [{ label: 'Market Growth Index (baseline confidential)', data: revenueIndex, borderColor: '#7B5AAF', backgroundColor: 'rgba(123, 90, 175, 0.05)', borderWidth: 3, fill: true, pointBackgroundColor: '#FFD700', pointBorderColor: '#FFFFFF', pointRadius: 4, tension: 0.2 }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { tooltip: { callbacks: { label: (ctx) => `Relative index: ${ctx.raw} (actual values blurred)` } }, legend: { position: 'top' } }, scales: { y: { title: { display: true, text: 'Relative Market Index' } }, x: { title: { display: true, text: 'Year' } } } } });
+    new Chart(ctxLine, { 
+        type: 'line', 
+        data: { labels: years, datasets: [{ label: 'Market Growth Index (baseline confidential)', data: revenueIndex, borderColor: '#7B5AAF', backgroundColor: 'rgba(123, 90, 175, 0.05)', borderWidth: 3, fill: true, pointBackgroundColor: '#FFD700', pointBorderColor: '#FFFFFF', pointRadius: 4, tension: 0.2 }] }, 
+        options: { responsive: true, maintainAspectRatio: true, plugins: { tooltip: { callbacks: { label: (ctx) => `Relative index: ${ctx.raw} (actual values blurred)` } }, legend: { position: 'top' } }, scales: { y: { title: { display: true, text: 'Relative Market Index' } }, x: { title: { display: true, text: 'Year' } } } } 
+    });
 </script>
 </body>
 </html>
