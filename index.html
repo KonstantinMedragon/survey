@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Demo · IVD Market Intelligence · Strategic Overview · Confidential</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #FFFFFF;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3e;
+            line-height: 1.5;
+        }
+
+        .navbar {
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border-bottom: 1px solid #eaeef2;
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #2c3e50;
+        }
+
+        .burger {
+            font-size: 1.6rem;
+            cursor: pointer;
+            background: #f5f5f5;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: 0.2s;
+        }
+
+        .burger:hover {
+            background: #e0e0e0;
+        }
+
+        .menu {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            background: white;
+            margin-top: 1rem;
+            border-radius: 20px;
+            padding: 1rem;
+            gap: 0.5rem;
+            border: 1px solid #eaeef2;
+        }
+
+        .menu a {
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 40px;
+            background: #fafafa;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .menu a:hover {
+            background: #e8e8e8;
+            color: #000;
+        }
+
+        .menu.show {
+            display: flex;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 28px auto 40px;
+            padding: 0 24px;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #e0e0e0;
+            color: #2c3e50;
+        }
+
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid #eaeef2;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        .chart-container {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        canvas {
+            max-height: 300px;
+            width: 100%;
+        }
+
+        .badge {
+            background: #f0f0f0;
+            color: #2c3e50;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        /* Таблицы с прокруткой */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 16px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #FFFFFF;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            min-width: 500px;
+        }
+
+        .data-table th {
+            background: #f5f5f5;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .partner-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #FFFFFF;
+            border-radius: 16px;
+            font-size: 0.85rem;
+        }
+
+        .partner-table th {
+            background: #f5f5f5;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .partner-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        .insight {
+            background: #f9f9f9;
+            padding: 16px 20px;
+            border-radius: 16px;
+            margin: 24px 0;
+            border-left: 3px solid #888;
+        }
+
+        .note {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* === КОНФИДЕНЦИАЛЬНЫЕ БЛОКИ: затемнение и скрытие имён, цифр, партнёров === */
+        .redacted-blur {
+            filter: blur(5px);
+            background-color: rgba(0,0,0,0.04);
+            display: inline-block;
+            user-select: none;
+            pointer-events: none;
+            border-radius: 12px;
+            transition: filter 0.2s;
+        }
+        .redacted-block {
+            filter: blur(5px);
+            background: #f3f3f3;
+            border-radius: 16px;
+            padding: 2px 6px;
+            display: inline-block;
+            user-select: none;
+        }
+        .partner-redacted {
+            filter: blur(5px);
+            background-color: #ececec;
+            border-radius: 12px;
+            display: inline-block;
+            width: 100%;
+            font-size: 0.85rem;
+            pointer-events: none;
+        }
+        .price-redacted {
+            filter: blur(5px);
+            background: #e9e9e9;
+            border-radius: 8px;
+            display: inline-block;
+            padding: 0 6px;
+            font-weight: normal;
+        }
+        .full-table-blur {
+            filter: blur(5px);
+            background: rgba(245,245,245,0.7);
+            border-radius: 16px;
+            pointer-events: none;
+            margin-bottom: 16px;
+        }
+        .partner-table-wrapper.blur-partners {
+            filter: blur(6px);
+            background: #fafafa;
+            border-radius: 20px;
+            padding: 4px 0;
+            pointer-events: none;
+            margin: 20px 0;
+        }
+        .pricing-overlay {
+            position: relative;
+        }
+        .pricing-overlay .price-blur {
+            filter: blur(6px);
+        }
+        .demo-warning {
+            background: #fef2e0;
+            border-left: 4px solid #d9a13b;
+            padding: 12px 20px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            color: #7a5c2e;
+        }
+        .arrow-down {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0 10px;
+            animation: bounce 1.8s infinite;
+        }
+        .arrow-down a {
+            font-size: 1.8rem;
+            text-decoration: none;
+            background: #f0f0f0;
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #2c3e50;
+            transition: 0.2s;
+        }
+        .arrow-down a:hover {
+            background: #d0d0d0;
+            transform: scale(1.05);
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.7rem;
+            padding: 24px 20px 20px;
+            color: #7a8a9a;
+            border-top: 1px solid #eaeef2;
+            margin-top: 48px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 760px) {
+            .navbar { padding: 0.75rem 1.2rem; }
+            .container { padding: 0 16px; }
+            .partner-table { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <div class="logo">MedIntel · IVD Market Intelligence (Demo)</div>
+    <div class="burger" id="burgerBtn">☰</div>
+    <div class="menu" id="menuPanel">
+        <a href="#overview">1. IVD Market Overview (Demo)</a>
+        <a href="#dynamics">2. Growth Dynamics</a>
+        <a href="#players">3. Market Structure & Analysis</a>
+        <a href="#registration">4. Regulatory Pathways</a>
+        <a href="#pricing">5. Pricing Estimation (Masked)</a>
+        <a href="#oem-partners">6. Potential Partners (Redacted)</a>
+        <a href="#fda-list">7. Thai FDA Codes</a>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Водяной знак демо-версии -->
+    <div class="demo-warning">
+        🔒 <strong>DEMONSTRATION VERSION</strong> · All client-specific data, company names, partner lists, exact figures and pricing are masked with blur effect. The layout, analysis depth & style represent the final deliverable structure.
+    </div>
+
+    <!-- SECTION 1: OVERVIEW + PIE CHARTS (значения рынка обезличены, показана структура) -->
+    <div id="overview" class="section-title">1. Medical Device Market & IVD Share (Illustrative)</div>
+    <div class="card-grid">
+        <div class="card">
+            <div class="badge">TOTAL MARKET SIZE</div>
+            <div class="stat-value"><span class="redacted-blur">€X.XX billion</span></div>
+            <div style="margin: 16px 0 8px 0">IVD accounts for <strong class="redacted-blur">~XX%</strong> of total medical market.</div>
+            <div class="chart-container">
+                <canvas id="pieTotalMarket" width="450" height="280" style="max-width:100%; height:auto;"></canvas>
+            </div>
+            <div class="insight" style="margin-top: 6px;">Source: aggregated market research (Illustrative anonymized)</div>
+        </div>
+        <div class="card">
+            <div class="badge">IVD MARKET BREAKDOWN (masked values)</div>
+            <div class="stat-value"><span class="redacted-blur">€XXXM total IVD</span></div>
+            <div style="margin: 12px 0 4px 0">Reagents & Kits = <span class="redacted-blur">~XX%</span><br><strong>Clinical Chemistry</strong> = <span class="redacted-blur">X% of reagents</span><br>Instruments, software = <span class="redacted-blur">~XX%</span></div>
+            <div class="chart-container">
+                <canvas id="pieIvdBreakdown" width="450" height="280" style="max-width:100%; height:auto;"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2: DYNAMICS line chart -->
+    <div id="dynamics" class="section-title">2. Historical & Forecast IVD Market Trajectory (2016–2030)</div>
+    <div class="card full-width">
+        <div class="badge">Revenue evolution (EUR million, masked reference)</div>
+        <div class="chart-container">
+            <canvas id="ivdGrowthChart" width="900" height="380" style="max-width:100%; height:auto;"></canvas>
+        </div>
+        <div class="insight">
+            <p><strong>Key market drivers (structure only):</strong><br>
+            The market is driven by aging demographics, increasing chronic diseases, healthcare investments, and medical tourism. Demand for decentralized diagnostics and early detection programs fuels expansion.</p>
+            <p>Note: actual numbers replaced with relative trend for confidentiality. The growth curve shape reflects realistic forecast.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 3: Players + clinical chemistry analysis (без имён вендоров и цифр) -->
+    <div id="players" class="section-title">3. Regulatory Context & Competitive Landscape</div>
+    <div class="card full-width">
+        <p>Thailand's medical device framework aligns with IMDRF and ASEAN Medical Device Directive. Thai FDA offers Concise Pathway, Reliance Program, and Full Evaluation, accepting approvals from reference countries (US FDA, EU Notified Bodies, etc.). This creates commercial advantage for established international manufacturers.</p>
+        <p><strong>Market Structure:</strong> Import-driven IVD sector. In recent years, the top supplying regions include <span class="redacted-blur">[major western economies]</span> and <span class="redacted-blur">[Asian suppliers]</span> with varying market shares.</p>
+        <p><strong>Competitive Landscape Overview:</strong> The IVD market is consolidated among global leaders. Western manufacturers hold dominant positions due to regulatory synergy. <span class="redacted-blur">Chinese manufacturers have moderate presence, mostly in mid-tier segments.</span></p>
+        <div class="insight">Opportunity area: clinical chemistry pre-mixes (glucose, LDH, creatinine, ALT, AST), modular reagent systems, and raw material supply to local manufacturers/distributors.</div>
+    </div>
+
+    <!-- SECTION 3b: MARKET SHARE PIE CHART (названия поставщиков и доли удалены/размыты) -->
+    <div class="section-title">3b. Estimated IVD Import Market Share by Company (masked)</div>
+    <div class="card full-width">
+        <div class="badge">IMPORT DISTRIBUTION — ANONYMIZED</div>
+        <div class="chart-container">
+            <canvas id="pieImportMarketShare" width="900" height="380" style="max-width:100%; height:auto;"></canvas>
+        </div>
+        <div class="insight">
+            <p><strong>Note:</strong> Supplier names and percentages are hidden or aggregated to protect client confidentiality. The general structure shows dominance of established global players and presence of regional manufacturers.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 4: REGISTRATION PATHWAYS (полностью открыто, нет клиентских данных) -->
+    <div id="registration" class="section-title">4. Thai FDA Registration Pathways for IVD Products</div>
+    <div class="card full-width">
+        <p>For raw materials, reagents and pre-mixes, the following registration pathways are available via local importer/distributor:</p>
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Pathway</th><th>Description</th><th>Timeline</th><th>Key Suitability</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Concise Pathway</strong></td><td>For products with prior approval from reference countries (US FDA, EU CE, etc.)</td><td>~90-180 days</td><td>Strong if manufacturer holds EU CE or reference approval</td></tr>
+                    <tr><td><strong>Full Evaluation Pathway</strong></td><td>Without reference country approval; complete technical file required</td><td>~180-365 days</td><td>Possible but longer timeline</td></tr>
+                    <tr><td><strong>Reliance Program</strong></td><td>For products registered in ASEAN reference countries</td><td>~60-120 days</td><td>Good for ASEAN presence</td></tr>
+                    <tr><td><strong>OEM/Private Label Registration</strong></td><td>Local manufacturer/importer registers product under its name</td><td>~90-180 days</td><td>Recommended for market entry — distributor holds license</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="insight">
+            <strong>Strategic recommendation:</strong> Partner with a local Thai distributor who will hold Thai FDA registration via OEM/Private Label pathway, minimizing regulatory burden while ensuring compliance.
+        </div>
+    </div>
+
+    <!-- SECTION 5: PRICING TABLE (полностью затемнено) -->
+    <div id="pricing" class="section-title">5. Estimated Pricing for Distributor (Confidential data masked)</div>
+    <div class="card full-width">
+        <p>The following estimates are based on industry benchmarks — actual figures are blurred for demonstration.</p>
+        <div class="table-wrapper pricing-overlay">
+            <table class="data-table price-blur" style="filter: blur(6px); background: #fafafa;">
+                <thead>
+                    <tr><th>Test / Panel</th><th>Price to Lab (USD)</th><th>Target Price to Distributor</th><th>Typical Margin Range</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Glucose (per test)</td><td>$CONF</td><td>$CONF</td><td>masked</td></tr>
+                    <tr><td>Creatinine (per test)</td><td>$CONF</td><td>$CONF</td><td>masked</td></tr>
+                    <tr><td>ALT / AST (each)</td><td>$CONF</td><td>$CONF</td><td>masked</td></tr>
+                    <tr><td>Lipid Panel</td><td>$CONF</td><td>$CONF</td><td>masked</td></tr>
+                    <tr><td>HbA1c</td><td>$CONF</td><td>$CONF</td><td>masked</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="insight">
+            <strong>Demonstration note:</strong> Full pricing analysis, per-test costs and distributor price points are removed to protect previous client confidentiality. The final deliverable would include granular benchmark data.
+        </div>
+    </div>
+
+    <!-- SECTION 6: POTENTIAL PARTNERS (полностью скрыты названия компаний - blur) -->
+    <div id="oem-partners" class="section-title">6. Potential Partners in Thailand (Redacted – Confidential List)</div>
+    <div class="card full-width">
+        <p>Based on official registries and market research, the following partner landscape includes diagnostic manufacturers, reagent specialists and distribution channels. All names are blurred for demo.</p>
+        <div class="partner-table-wrapper blur-partners" style="filter: blur(6px); background: #f6f6f6; border-radius: 24px; padding: 8px 0;">
+            <table class="partner-table">
+                <thead><tr><th>Company Name (Confidential)</th><th>Activity / Role</th></tr></thead>
+                <tbody>
+                    <tr><td>██████████ Co., Ltd.</td><td>Clinical chemistry reagents, rapid tests</td></tr>
+                    <tr><td>██████████ (Thailand)</td><td>Reagents & home test kits</td></tr>
+                    <tr><td>Government Pharmaceutical Organization</td><td>Immunoassay, rapid tests</td></tr>
+                    <tr><td>██████ (Thailand) Co., Ltd.</td><td>Lab reagents, distribution</td></tr>
+                    <tr><td>████████ Corporation Ltd.</td><td>Assay kits, blood collection</td></tr>
+                    <tr><td>Khon Kaen University Research Center</td><td>Thalassemia screening, R&D</td></tr>
+                    <tr><td>Siam Bioscience Co., Ltd.</td><td>Immunoassay, PCR reagents</td></tr>
+                    <tr><td>Pacific Biotech Co., Ltd.</td><td>Serology, rapid tests</td></tr>
+                    <tr><td>Affinome Co., Ltd.</td><td>Infectious disease tests, OEM</td></tr>
+                    <tr><td>DruBio (Thailand) Co., Ltd.</td><td>Thalassemia reagents</td></tr>
+                    <tr><td>NANOTEC</td><td>Clinical chemistry R&D</td></tr>
+                    <tr><td>Chulalongkorn University</td><td>Microalbuminuria rapid test</td></tr>
+                    <tr><td>Biomed Diagnostics (Thailand)</td><td>Diagnostic equipment distribution</td></tr>
+                    <tr><td>E for L AIM Public Company</td><td>Tuberculosis, molecular diagnostics</td></tr>
+                    <tr><td>Winnergy Medical</td><td>Oncology, lab management</td></tr>
+                    <tr><td>Mindray Medical (China)</td><td>Biochemistry, hematology instruments</td></tr>
+                    <tr><td>DIRUI Industrial Co., Ltd.</td><td>Biochemistry & urinalysis</td></tr>
+                    <tr><td>and 20+ other regional players</td><td>Manufacturing / distribution</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="insight" style="margin-top: 20px;">
+            <strong>Summary for prospect:</strong> A systematic analysis of local production capacities and distribution partnerships is available. The full report includes a prioritized contact list and cooperation potential matrix.
+        </div>
+    </div>
+
+    <!-- SECTION 7: Thai FDA codes (оставлены открытыми) -->
+    <div id="fda-list" class="section-title">7. Thai FDA — Relevant Codes for IVD Reagents / Pre-mixes</div>
+    <div class="card full-width">
+        <div class="table-wrapper">
+            <table class="data-table">
+                <thead><tr><th>Code / Category (Thai FDA)</th><th>Description</th><th>Product Type</th></tr></thead>
+                <tbody>
+                    <tr><td>10-1-034</td><td>In Vitro Diagnostic Medical Device (general)</td><td>Reagents, kits, calibrators</td></tr>
+                    <tr><td>10-1-035</td><td>Clinical Chemistry reagents</td><td>Glucose, lipids, enzymes, electrolytes</td></tr>
+                    <tr><td>10-1-038</td><td>Quality control material for clinical chemistry</td><td>Control sera, calibrators</td></tr>
+                    <tr><td>10-1-041</td><td>Immunoassay reagents</td><td>Infectious diseases, hormones</td></tr>
+                    <tr><td>10-1-050</td><td>Specimen collection/transport devices</td><td>Blood collection tubes, swabs</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="margin-top: 14px;">For OEM products, registration by a local importer referencing the manufacturer's ISO13485 certificate is sufficient. Thai FDA encourages local reagent production under "Thailand 4.0".</p>
+    </div>
+
+    <!-- Animated Arrow to skycode.codes -->
+    <div class="arrow-down">
+        <a href="https://skycode.codes" target="_blank" rel="noopener noreferrer">↓</a>
+    </div>
+
+    <footer>
+        <p>Market intelligence layout and design by <strong>Medical Strategy Team</strong>. Analytical framework & deliverable concept by <strong>Konstantin Bakharev, PhD</strong>. Code development by <strong>skycode.codes</strong>.</p>
+        <p style="margin-top: 8px;">© 2025 · IVD Market Report (Demo Version) — Client-specific data removed / masked.</p>
+    </footer>
+</div>
+
+<script>
+    (function() {
+        const burger = document.getElementById('burgerBtn');
+        const menuPanel = document.getElementById('menuPanel');
+        if (burger) {
+            burger.addEventListener('click', () => {
+                menuPanel.classList.toggle('show');
+            });
+        }
+
+        // PIE 1: общая структура рынка (доли, но без конкретных цифр, названия обобщены)
+        const ctx1 = document.getElementById('pieTotalMarket').getContext('2d');
+        new Chart(ctx1, {
+            type: 'pie',
+            data: {
+                labels: ['IVD Segment (indicator)', 'Other Medical Segments'],
+                datasets: [{ data: [22, 78], backgroundColor: ['#E6E6FA', '#FFF8DC'], borderColor: '#FFFFFF', borderWidth: 2 }]
+            },
+            options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ~${ctx.raw}% (masked)` } } } }
+        });
+
+        const ctx2 = document.getElementById('pieIvdBreakdown').getContext('2d');
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Reagents & Kits', 'Clinical Chemistry (subset)', 'Other Reagents', 'Instruments & Others'],
+                datasets: [{
+                    data: [68, 13, 55, 32],
+                    backgroundColor: ['#E6E6FA', '#FFD700', '#D9CCF0', '#FFF8DC'],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 1.5,
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                cutout: '50%',
+                plugins: { 
+                    legend: { position: 'bottom', labels: { font: { size: 10 } } },
+                    tooltip: { callbacks: { label: (ctx) => `Share: approximate (confidential)` } }
+                }
+            }
+        });
+
+        // импортный market share pie — названия удалены, доли обобщены
+        const ctxImport = document.getElementById('pieImportMarketShare').getContext('2d');
+        new Chart(ctxImport, {
+            type: 'pie',
+            data: {
+                labels: ['Leader Group A', 'Leader Group B', 'Major Intl C', 'Major Intl D', 'Asian Manufacturer E', 'Others & Local'],
+                datasets: [{ data: [16, 14, 11, 9, 7, 43], backgroundColor: ['#7B5AAF', '#5A9E8F', '#D9A13B', '#4A8FE7', '#5CC0B0', '#B0B0B0'], borderColor: '#FFFFFF', borderWidth: 2 }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { size: 9 } } },
+                    tooltip: { callbacks: { label: (ctx) => `Approximate share — actual data masked` } }
+                }
+            }
+        });
+
+        // график роста (цифры скрыты, но тренд сохранён)
+        const years = ['2016','2017','2018','2019','2020','2021','2022','2023','2024','2025','2026','2027','2028','2029','2030'];
+        // относительные индексы вместо точных евро
+        const revenueIndex = [100, 108, 116, 126, 135, 153, 175, 196, 224, 252, 282, 315, 350, 388, 428];
+        const ctxLine = document.getElementById('ivdGrowthChart').getContext('2d');
+        new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{
+                    label: 'Market Growth Index (real values masked)',
+                    data: revenueIndex,
+                    borderColor: '#7B5AAF',
+                    backgroundColor: 'rgba(123, 90, 175, 0.05)',
+                    borderWidth: 3,
+                    fill: true,
+                    pointBackgroundColor: '#FFD700',
+                    pointBorderColor: '#FFFFFF',
+                    pointRadius: 4,
+                    tension: 0.2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    tooltip: { callbacks: { label: (ctx) => `Relative value: ${ctx.raw} (baseline masked)` } },
+                    legend: { position: 'top' }
+                },
+                scales: {
+                    y: { title: { display: true, text: 'Market Index (Confidential scale)' }, grid: { color: '#f2eefb' } },
+                    x: { title: { display: true, text: 'Year (historical + forecast)' } }
+                }
+            }
+        });
+    })();
+</script>
+</body>
+</html>
